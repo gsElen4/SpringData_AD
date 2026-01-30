@@ -1,0 +1,8 @@
+com\practica1\entity\Alumno.class
+com\practica1\entity\Curso.class
+com\practica1\Clase.class
+com\practica1\service\AlumnoService.class
+com\practica1\service\CursoService.class
+com\practica1\entity\Asignatura.class
+com\practica1\repository\AlumnoRepository.class
+com\practica1\repository\CursoRepository.class
