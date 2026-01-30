@@ -1,6 +1,8 @@
 package com.practica1.entity;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import jakarta.persistence.Entity;
@@ -12,6 +14,7 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 
 @Entity
 public class Alumno {
@@ -31,6 +34,9 @@ public class Alumno {
             joinColumns = @JoinColumn(name = "alumno_id"),
             inverseJoinColumns = @JoinColumn(name = "asignatura_id"))
     private Set<Asignatura> asignaturas = new HashSet<>();
+
+    @OneToMany(mappedBy="alumno", fetch = FetchType.LAZY)
+    private List<Matricula> matriculas = new ArrayList<>();
 
     // Constructores
     public Alumno() {
