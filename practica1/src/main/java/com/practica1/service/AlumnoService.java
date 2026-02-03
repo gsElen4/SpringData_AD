@@ -5,6 +5,7 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.practica1.entity.Alumno;
 import com.practica1.entity.Asignatura;
@@ -32,11 +33,13 @@ public class AlumnoService {
     }
 
     // Obtener un alumno por id
+    @Transactional(readOnly = true)
     public Optional<Alumno> obtenerPorId(Long id) {
         return alumnoRepository.findById(id);
     }
 
     // Actualizar un alumno
+    @Transactional
     public Alumno actualizarAlumno(Long id, String nombre, String email) {
         Optional<Alumno> alumnoOpt = alumnoRepository.findById(id);
         if (alumnoOpt.isPresent()) {

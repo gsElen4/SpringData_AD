@@ -8,7 +8,7 @@ import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.ManyToMany;
 
 @Entity
 public class Asignatura {
@@ -19,8 +19,8 @@ public class Asignatura {
 
     private String nombre;
 
-    @OneToMany(mappedBy = "asignatura", fetch = FetchType.EAGER)
-    private Set<Matricula> matriculas = new HashSet<>();
+    @ManyToMany(mappedBy = "asignaturas", fetch = FetchType.EAGER)
+    private Set<Alumno> alumnos = new HashSet<>();
 
     public Asignatura() {
     }
